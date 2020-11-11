@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@crowdedjs/objs": "^0.1.0",
     "@crowdedjs/worker": "^0.1.0"
   }
 }

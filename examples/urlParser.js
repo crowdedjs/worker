@@ -6,7 +6,7 @@ function urlParser(window, params) {
   const secondsOfSimulationParam = urlParams.get('seconds');
   const locationsPathParam = urlParams.get('location');
 
-  if (objPathParam) params.objPath = "./objs/" + objPathParam;
+  if (objPathParam) params.objPath = "./node_modules/@crowdedjs/objs/" + objPathParam;
   if (arrivalPathParam) params.arrivalPath = "./arrivals/" + arrivalPathParam;
   if (secondsOfSimulationParam) params.secondsOfSimulation = secondsOfSimulationParam;
   if (locationsPathParam) params.locationsPath = "./locations/" + locationsPathParam;
