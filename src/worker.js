@@ -1,4 +1,5 @@
-importScripts("./crowded.js")
+//importScripts("./crowded.js")
+import "./crowded.js"
 
 let CrowdAgentParams = crowded.CrowdAgentParams;
 let RecastTestMeshBuilder = crowded.RecastTestMeshBuilder;
@@ -144,3 +145,5 @@ onmessage = function (msg) {
     app.tick(JSON.parse(msg.data[1]), JSON.parse(msg.data[2]), JSON.parse(msg.data[3]))
   }
 }
+
+export default App;

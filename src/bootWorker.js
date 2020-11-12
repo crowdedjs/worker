@@ -1,5 +1,6 @@
-//import app from './worker.js'
-let app = new Worker('../src/worker.js')
+import crowded from "./crowded.js"
+import app from 'web-worker:./worker.js'
+//let app = new Worker('../src/worker.js')
 
 function nextTick(arr){
   app.postMessage(["tick", ...arr]);
