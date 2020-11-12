@@ -2,7 +2,7 @@ import * as viewer from "./viewer.js"
 import simulationFile from "./simulations.js"
 import ControlCreator from "./ControlCreator.js"
 
-import bootWorker from "../index.js"
+import bootWorker from "../src/bootWorker.js"
 
 
 let simulations = [];

@@ -12,11 +12,16 @@
 <body>
   <script src="./lib/axios.min.js"></script>
   <script src="./lib/fluent-behavior-tree-browser.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@crowdedjs/recast-detour/crowded.js"></script>
+  <!-- <script src="../dist/main.js"></script> -->
   <!-- <script src="./src/index.js" type="module"></script> -->
   <script type="module">
     import MedicalAgent from "./sim/MedicalAgent.js"
     import crowdSetup from "./index.local.js"
     import urlParser from "./urlParser.js"
+
+    console.log(crowded);
+
 
     let params = {};
     params.objPath = "./node_modules/@crowdedjs/objs/hospital.obj";

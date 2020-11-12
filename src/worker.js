@@ -1,4 +1,4 @@
-importScripts("./node_modules/@crowdedjs/recast-detour/crowded.js")
+importScripts("./crowded.js")
 
 let CrowdAgentParams = crowded.CrowdAgentParams;
 let RecastTestMeshBuilder = crowded.RecastTestMeshBuilder;
