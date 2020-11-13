@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "rollup": "npx rollup -c && npm run fix",
-    "fix": "node fix.js"
+    "fix": "node fix.js",
+    "copy":"copy \"./bundle.js\" \"../examples/bundle.js\"",
+    "sink":"npm run rollup && npm run copy"
   },
   "keywords": [],
   "author": "",
