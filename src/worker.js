@@ -66,9 +66,9 @@ class App extends CrowdSimApp {
     this.secondsOfSimulation = secondsOfSimulation;
     this.locations = locationFileContents;
   }
-  boot() {
+  boot(nonce) {
     this.bootMesh(this.objFileContents);
-    postMessage({ type: "doneBoot" });
+    postMessage({ type: "doneBoot"+nonce });
     //this.tick([], [], []);
   }
   getAgentDefinitions() {
@@ -124,7 +124,7 @@ class App extends CrowdSimApp {
         toPost.push(toAdd);
       }
     }
-    postMessage({ type: "agentUpdate", agents: JSON.stringify(toPost), frame: i });
+    postMessage({ type: "agentUpdate" + nonce, agents: JSON.stringify(toPost), frame: i });
   }
   getStart(agent) {
     return [agent.startX, agent.startY, agent.startZ]
@@ -135,13 +135,15 @@ class App extends CrowdSimApp {
 }
 
 let app;
+let nonce = "";
 onmessage = function (msg) {
   if (!msg.data) return;
   if (msg.data[0] == "boot") {
     app = new App(msg.data[1], msg.data[2], msg.data[3]);
-    app.boot();
+    nonce = msg.data[4];
+    app.boot(nonce);
   }
-  else if (msg.data[0] == "tick") {
+  else if (msg.data[0] == "tick" + nonce) {
     app.tick(JSON.parse(msg.data[1]), JSON.parse(msg.data[2]), JSON.parse(msg.data[3]))
   }
 }
