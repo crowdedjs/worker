@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rollup": "npx rollup -c"
+    "rollup": "npx rollup -c",
+    "fix":"(Get-Content './bundle.js') -replace 'eslint-enable', 'WorkerFactory = WorkerFactory()' | Set-Content './bundle.js'"
   },
   "keywords": [],
   "author": "",
