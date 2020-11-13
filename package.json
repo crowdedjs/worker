@@ -5,8 +5,8 @@
   "main": "bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rollup": "npx rollup -c",
-    "fix":"(Get-Content './bundle.js') -replace 'eslint-enable', 'WorkerFactory = WorkerFactory()' | Set-Content './bundle.js'"
+    "rollup": "npx rollup -c && npm run fix",
+    "fix": "node fix.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
+    "replace-in-file": "^6.1.0",
     "rollup-plugin-web-worker-loader": "^1.4.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.4.0",
