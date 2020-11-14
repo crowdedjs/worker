@@ -3,7 +3,8 @@
   "version": "0.1.2",
   "description": "When called from the browser, creates a Web Worker that runs a crowd simulations.",
   "homepage": "https://github.com/crowdedjs/worker",
-  "browser": "bundle.js",
+  "browser": "./bundle.js",
+  "main":"bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "rollup": "npx rollup -c",
