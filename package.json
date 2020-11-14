@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "rollup": "npx rollup -c",
     "copy": "copy \"./worker.js\" \"../examples/worker.js\"",
-    "sink": "npm run rollup && npm run copy"
+    "sink": "npm run rollup && npm run copy",
+    "patch":"npm version patch -m \"Publish version %s\""
   },
   "keywords": [
     "Web Worker",
