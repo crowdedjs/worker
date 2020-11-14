@@ -1,8 +1,8 @@
 {
   "name": "@crowdedjs/worker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "When called from the browser, creates a Web Worker that runs a crowd simulations.",
-  "homepage":"https://github.com/crowdedjs/worker",
+  "homepage": "https://github.com/crowdedjs/worker",
   "browser": "bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,17 +10,20 @@
     "copy": "copy \"./bundle.js\" \"../examples/bundle.js\"",
     "sink": "npm run rollup && npm run copy"
   },
-  "keywords": ["Web Worker", "Crowd Simulation"],
+  "keywords": [
+    "Web Worker",
+    "Crowd Simulation"
+  ],
   "author": {
     "name": "B. Ricks",
-    "url":"https://github.com/bricksphd"
+    "url": "https://github.com/bricksphd"
   },
-  "files":[
+  "files": [
     "bundle.js"
   ],
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/crowdedjs/worker"
+    "type": "git",
+    "url": "https://github.com/crowdedjs/worker"
   },
   "license": "MIT",
   "dependencies": {
@@ -28,5 +31,7 @@
     "rollup": "^2.33.1",
     "rollup-plugin-web-worker-loader": "^1.4.0"
   },
-  "bugs": {"url":"https://github.com/crowdedjs/worker/issues"}
+  "bugs": {
+    "url": "https://github.com/crowdedjs/worker/issues"
+  }
 }
