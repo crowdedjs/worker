@@ -3,7 +3,7 @@ import webWorkerLoader from 'rollup-plugin-web-worker-loader';
 export default {
   input: './src/bootWorker.js',
   output: {
-      file: './bundle.js',
+      file: './worker.js',
       format: 'iife',
       name: 'bootWorker'
   },

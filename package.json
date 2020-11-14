@@ -3,12 +3,12 @@
   "version": "0.1.3",
   "description": "When called from the browser, creates a Web Worker that runs a crowd simulations.",
   "homepage": "https://github.com/crowdedjs/worker",
-  "browser": "./bundle.js",
-  "main": "bundle.js",
+  "browser": "./worker.js",
+  "main": "worker.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "rollup": "npx rollup -c",
-    "copy": "copy \"./bundle.js\" \"../examples/bundle.js\"",
+    "copy": "copy \"./worker.js\" \"../examples/worker.js\"",
     "sink": "npm run rollup && npm run copy"
   },
   "keywords": [
@@ -20,7 +20,7 @@
     "url": "https://github.com/bricksphd"
   },
   "files": [
-    "bundle.js"
+    "worker.js"
   ],
   "repository": {
     "type": "git",
