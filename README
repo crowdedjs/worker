@@ -1,0 +1,3 @@
+# CrowdedJS Worker
+
+Creates a crowd simulation that runs in a Web Worker thread.
