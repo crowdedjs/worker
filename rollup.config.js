@@ -4,7 +4,7 @@ export default {
   input: './src/bootWorker.js',
   output: {
       file: './worker.js',
-      format: 'iife',
+      format: 'es',
       name: 'bootWorker'
   },
   plugins:[
