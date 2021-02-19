@@ -1,2 +1,2 @@
-import * as bootWorker from "./worker.js"
+import bootWorker from "./worker.js"
 export default bootWorker;

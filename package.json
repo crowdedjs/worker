@@ -21,7 +21,8 @@
     "url": "https://github.com/bricksphd"
   },
   "files": [
-    "index.js", "worker.js"
+    "index.js",
+    "worker.js"
   ],
   "repository": {
     "type": "git",
