@@ -1,10 +1,10 @@
 {
   "name": "@crowdedjs/worker",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "When called from the browser, creates a Web Worker that runs a crowd simulations.",
   "homepage": "https://github.com/crowdedjs/worker",
-  "browser": "./worker.js",
-  "main": "worker.js",
+  "browser": "./index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "rollup": "npx rollup -c",
@@ -21,7 +21,7 @@
     "url": "https://github.com/bricksphd"
   },
   "files": [
-    "worker.js"
+    "index.js", "worker.js"
   ],
   "repository": {
     "type": "git",
