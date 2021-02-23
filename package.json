@@ -1,6 +1,6 @@
 {
   "name": "@crowdedjs/worker",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "When called from the browser, creates a Web Worker that runs a crowd simulations.",
   "homepage": "https://github.com/crowdedjs/worker",
   "browser": "./index.js",
