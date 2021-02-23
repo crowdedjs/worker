@@ -36,5 +36,6 @@
   },
   "bugs": {
     "url": "https://github.com/crowdedjs/worker/issues"
-  }
+  },
+  "type":"module"
 }
