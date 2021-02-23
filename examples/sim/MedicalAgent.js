@@ -1,6 +1,6 @@
 
-import BackAndForth from "./../behavior/BackAndForth.js";
-import None from "./../behavior/None.js"
+import BackAndForth from "./../behavior/back-and-forth.js";
+import None from "./../behavior/none.js"
 import Agent from "./Agent.js"
 
 
