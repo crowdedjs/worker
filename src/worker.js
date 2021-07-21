@@ -44,7 +44,7 @@ class CrowdSimApp {
     ap.height = 2;
     ap.maxAcceleration = 8.0;
     ap.maxSpeed = 2.5; //Originally 3.5f
-    ap.collisionQueryRange = ap.radius * 12;
+    ap.collisionQueryRange = ap.radius * 1;
     ap.pathOptimizationRange = ap.radius * 30;
     ap.updateFlags = updateFlags;
     ap.obstacleAvoidanceType = 0;

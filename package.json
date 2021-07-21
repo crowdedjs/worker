@@ -1,6 +1,6 @@
 {
   "name": "@crowdedjs/worker",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "When called from the browser, creates a Web Worker that runs a crowd simulations.",
   "homepage": "https://github.com/crowdedjs/worker",
   "browser": "./index.js",
@@ -30,7 +30,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@crowdedjs/recast-detour": "^0.1.1",
+    "@crowdedjs/recast-detour": "^0.2.0",
     "rollup": "^2.33.1",
     "rollup-plugin-web-worker-loader": "^1.4.0"
   },

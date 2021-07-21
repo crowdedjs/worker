@@ -1342,17 +1342,19 @@
     }, {
       key: "getTileAndPolyByRef",
       value: function getTileAndPolyByRef(ref) {
-        if (ref == 0) {
-          throw new IllegalArgumentException("ref = 0");
-        }
-
+        // if (ref == 0) {
+        // 	throw new IllegalArgumentException("ref = 0");
+        // }
         var saltitip = NavMesh.decodePolyId(ref);
         var salt = saltitip[0];
         var it = saltitip[1];
-        var ip = saltitip[2];
-        if (it >= this.m_maxTiles) throw new IllegalArgumentException("tile > m_maxTiles");
-        if (this.m_tiles[it].salt != salt || this.m_tiles[it].data.header == null) throw new IllegalArgumentException("Invalid salt or header");
-        if (ip >= this.m_tiles[it].data.header.polyCount) throw new IllegalArgumentException("poly > polyCount");
+        var ip = saltitip[2]; // if (it >= this.m_maxTiles)
+        // 	throw new IllegalArgumentException("tile > m_maxTiles");
+        // if (this.m_tiles[it].salt != salt || this.m_tiles[it].data.header == null)
+        // 	throw new IllegalArgumentException("Invalid salt or header");
+        // if (ip >= this.m_tiles[it].data.header.polyCount)
+        // 	throw new IllegalArgumentException("poly > polyCount");
+
         return [this.m_tiles[it], this.m_tiles[it].data.polys[ip]];
       } /// @par
       ///
@@ -1444,12 +1446,9 @@
         var salt;
         var it;
         var ip;
-        var saltMask = NavMesh.lshift(1, NavMesh.DT_SALT_BITS) - 1;
-        var tileMask = NavMesh.lshift(1, NavMesh.DT_TILE_BITS) - 1;
-        var polyMask = NavMesh.lshift(1, NavMesh.DT_POLY_BITS) - 1;
-        salt = Math.floor(NavMesh.and(NavMesh.rshift(ref, NavMesh.DT_POLY_BITS + NavMesh.DT_TILE_BITS), saltMask));
-        it = Math.floor(NavMesh.and(NavMesh.rshift(ref, NavMesh.DT_POLY_BITS), tileMask));
-        ip = Math.floor(NavMesh.and(ref, polyMask));
+        salt = Math.floor(NavMesh.and(NavMesh.rshift(ref, NavMesh.DT_POLY_BITS + NavMesh.DT_TILE_BITS), this.saltMask));
+        it = Math.floor(NavMesh.and(NavMesh.rshift(ref, NavMesh.DT_POLY_BITS), this.tileMask));
+        ip = Math.floor(NavMesh.and(ref, this.polyMask));
         return [salt, it, ip];
       } /// Extracts a tile's salt value from the specified polygon reference.
       /// @note This function is generally meant for internal use only.
@@ -2513,6 +2512,12 @@
   _defineProperty(NavMesh, "DT_TILE_BITS", 28);
 
   _defineProperty(NavMesh, "DT_POLY_BITS", 20);
+
+  _defineProperty(NavMesh, "saltMask", NavMesh.lshift(1, NavMesh.DT_SALT_BITS) - 1);
+
+  _defineProperty(NavMesh, "tileMask", NavMesh.lshift(1, NavMesh.DT_TILE_BITS) - 1);
+
+  _defineProperty(NavMesh, "polyMask", NavMesh.lshift(1, NavMesh.DT_POLY_BITS) - 1);
 
   _defineProperty(NavMesh, "DT_EXT_LINK", 0x8000);
 
@@ -12678,7 +12683,7 @@
 
           var _closest = DetourCommon.vLerp4(tile.data.verts, _v, _v2, _u);
 
-          return new ClosesPointOnPolyResult(false, _closest);
+          return new ClosestPointOnPolyResult(false, _closest);
         } // Clamp poPoly to be inside the polygon.
 
 
@@ -15723,18 +15728,24 @@
 
         for (var _y = iminy; _y <= imaxy; ++_y) {
           for (var _x = iminx; _x <= imaxx; ++_x) {
-            var _key = new ProximityGrid.ItemKey(_x, _y);
+            //let key = new ProximityGrid.ItemKey(x, y);
+            var _string = this.stringIt(_x, _y);
 
-            var _ids = this.items[JSON.stringify(_key)];
+            var _ids = this.items[_string];
 
             if (_ids == null) {
               _ids = [];
-              this.items[JSON.stringify(_key)] = _ids;
+              this.items[_string] = _ids;
             }
 
             _ids.push(id);
           }
         }
+      }
+    }, {
+      key: "stringIt",
+      value: function stringIt(x, y) {
+        return x + "," + y;
       }
     }, {
       key: "queryItems",
@@ -15747,9 +15758,10 @@
 
         for (var _y2 = iminy; _y2 <= imaxy; ++_y2) {
           for (var _x2 = iminx; _x2 <= imaxx; ++_x2) {
-            var _key2 = new ProximityGrid.ItemKey(_x2, _y2);
+            var _string = this.stringIt(_x2, _y2); //let key = new ProximityGrid.ItemKey(x, y);
 
-            var _ids2 = this.items[JSON.stringify(_key2)];
+
+            var _ids2 = this.items[_string];
 
             if (_ids2 != null) {
               result.add.apply(result, _toConsumableArray(_ids2));
